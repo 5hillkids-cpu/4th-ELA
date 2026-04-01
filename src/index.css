@@ -247,7 +247,62 @@ body[data-reduced-motion="true"] *::after {
   padding: 2rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   min-height: 400px;
+}/* =====================
+   LESSON 1: HAMSTER SCHOOL BACKGROUNDS
+   ===================== */
+
+.slide-content.lesson1-bg {
+  position: relative;
+  overflow: hidden;
 }
+
+/* Background image layer (blurred) */
+.slide-content.lesson1-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* slight blur but keep content sharp */
+  filter: blur(2px);
+  transform: scale(1.04);
+
+  /* semi-transparent background */
+  opacity: 0.35;
+
+  z-index: 0;
+}
+
+/* Light overlay for readability */
+.slide-content.lesson1-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.55);
+  z-index: 1;
+}
+
+/* Keep all slide content above overlays */
+.slide-content.lesson1-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* One different hamster per slide (GitHub Pages base is /4th-ELA/) */
+.slide-content.lesson1-bg.lesson1-bg-1::before { background-image: url("/4th-ELA/lesson1/hamster-school-01.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-2::before { background-image: url("/4th-ELA/lesson1/hamster-school-02.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-3::before { background-image: url("/4th-ELA/lesson1/hamster-school-03.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-4::before { background-image: url("/4th-ELA/lesson1/hamster-school-04.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-5::before { background-image: url("/4th-ELA/lesson1/hamster-school-05.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-6::before { background-image: url("/4th-ELA/lesson1/hamster-school-06.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-7::before { background-image: url("/4th-ELA/lesson1/hamster-school-07.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-8::before { background-image: url("/4th-ELA/lesson1/hamster-school-08.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-9::before { background-image: url("/4th-ELA/lesson1/hamster-school-09.svg"); }
+.slide-content.lesson1-bg.lesson1-bg-10::before { background-image: url("/4th-ELA/lesson1/hamster-school-10.svg"); }
 
 .lesson-nav-bottom {
   display: flex;
