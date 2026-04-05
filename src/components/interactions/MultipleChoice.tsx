@@ -9,9 +9,10 @@ interface Props {
   rationale: string;
   onCorrect: () => void;
   xpReward?: number;
+  passage?: string;
 }
 
-export default function MultipleChoice({ question, options, correctIndex, rationale, onCorrect, xpReward = 10 }: Props) {
+export default function MultipleChoice({ question, options, correctIndex, rationale, onCorrect, xpReward = 10, passage }: Props) {
   const [selected, setSelected] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const { addXP, soundOn } = useStore();
@@ -39,6 +40,11 @@ export default function MultipleChoice({ question, options, correctIndex, ration
   return (
     <div className="interaction-box mc-container">
       <p className="mc-question">{question}</p>
+      {passage && (
+        <div className="passage-box" role="region" aria-label="Reading passage">
+          {passage}
+        </div>
+      )}
       <div className="mc-options" role="radiogroup" aria-label={question}>
         {options.map((opt, i) => (
           <button
